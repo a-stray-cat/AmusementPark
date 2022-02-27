@@ -15,16 +15,18 @@ import java.util.List;
 @Mapper
 public interface UserMapper {
 
-    public User isUser(User user);
+    User isUser(User user);
 
-    public User userLogin(@Param("username") String username, @Param("password") String password);
+    User selectTypeByUuid(@Param("uuid") String uuid);
 
-    public int registerUser(@Param("username") String username, @Param("password") String password);
+    User userLogin(@Param("username") String username, @Param("password") String password);
 
-    public int updateUser(User user);
+    int registerUser(@Param("username") String username, @Param("password") String password);
 
-    public List<User> selectUser(User user);
+    int updateUser(User user);
 
-    public int deleteUser(User user);
+    List<User> selectUser(User user);
+
+    int deleteUser(User user);
 
 }

@@ -1,6 +1,7 @@
 package amusementpark.service;
 
 import amusementpark.model.User;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,15 +15,17 @@ import java.util.List;
 @Service
 public interface UserService {
 
-    public User isUser(User user);
+    User isUser(User user);
 
-    public int userLogin(User user);
+    User selectTypeByUuid(@Param("uuid") String uuid);
 
-    public int registerUser(User user);
+    int userLogin(User user);
 
-    public int updateUser(User user);
+    int registerUser(User user);
 
-    public List<User> selectUser(User user);
+    int updateUser(User user);
 
-    public int deleteUser(User user);
+    List<User> selectUser(User user);
+
+    int deleteUser(User user);
 }

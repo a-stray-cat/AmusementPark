@@ -20,8 +20,11 @@ public class UserController {
 
     private final String ad = "ad";
 
-    @Autowired
-    UserService userService;
+    private final UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     /**
      * 登录接口

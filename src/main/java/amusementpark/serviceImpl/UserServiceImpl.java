@@ -27,6 +27,11 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
+  public User selectTypeByUuid(String uuid) {
+    return userMapper.selectTypeByUuid(uuid);
+  }
+
+  @Override
   public int userLogin(User user) {
 
     int i = -1;//默认登录失败

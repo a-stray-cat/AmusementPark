@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="amusementpark.mapper.WebMapper">
+
+    <sql id="allinfo">
+        uid, webname, weburl, webmessage, webtag
+    </sql>
+
+    <insert id="addWebInfo">
+        insert into webinfo (<include refid="allinfo" />) values (#{uid}, #{webname}, #{weburl}, #{webmessage}, #{webtag})
+    </insert>
+    <update id="updateWebInfo">
+        update webinfo set weburl = #{weburl} , webname = #{webname} , webmessage = #{webmessage} , webtag = #{webtag} where uid = #{uid} and webuuid = #{webuuid}
+    </update>
+    <delete id="deleteWebInfo">
+        delete from webinfo where weburl = #{weburl}
+    </delete>
+    <delete id="deleteWebInfoByUid">
+        delete from webinfo where weburl = #{weburl} and uid = #{uid}
+    </delete>
+    <select id="selectWebInfo" resultType="amusementpark.model.Webinfo">
+        select * from webinfo
+        <where>
+            <if test="weburl != null and weburl != ''">
+                weburl Like #{weburl}
+            </if>
+            <if test="webname != null and webname != ''">
+                or webname Like #{webname}
+            </if>
+            <if test="webmessage != null and webmessage != ''">
+                or webmessage Like #{webmessage}
+            </if>
+            <if test="webtag != null and webtag != ''">
+                or webtag Like #{webtag}
+            </if>
+        </where>
+    </select>
+    <select id="selectWhen" resultType="amusementpark.model.Webinfo">
+        select * from webinfo
+        <where>
+            <if test="uid != null and uid != ''">
+                and uid = #{uid}
+            </if>
+            <if test="weburl != null and weburl != ''">
+                and weburl = #{weburl}
+            </if>
+        </where>
+    </select>
+</mapper>

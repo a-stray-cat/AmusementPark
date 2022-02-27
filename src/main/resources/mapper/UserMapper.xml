@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="amusementpark.mapper.UserMapper">
+
+    <select id="isUser" resultType="amusementpark.model.User">
+        select * from user
+        <where>
+            <if test="username != null">
+                and username = #{username}
+            </if>
+            <if test="password != null">
+                and password = #{password}
+            </if>
+        </where>
+    </select>
+    <select id="selectTypeByUuid" resultType="amusementpark.model.User">
+        select type from user where uuid = #{uuid}
+    </select>
+    <select id="userLogin" resultType="amusementpark.model.User">
+        select * from user where username = #{username} and password = #{password}
+    </select>
+    <insert id="registerUser" parameterType="amusementpark.model.User">
+        insert into user (username, password) values (#{username}, #{password})
+    </insert>
+    <update id="updateUser">
+        update user set password = #{password} where username = #{username}
+    </update>
+    <select id="selectUser" resultType="amusementpark.model.User">
+        select * from user
+        <where>
+            <if test="username != null and username != ''">
+                username = #{username}
+            </if>
+        </where>
+    </select>
+    <delete id="deleteUser">
+        delete from user where username = #{username}
+    </delete>
+
+</mapper>
