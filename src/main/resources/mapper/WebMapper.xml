@@ -21,9 +21,6 @@
     <select id="selectWebInfo" resultType="amusementpark.model.Webinfo">
         select * from webinfo
         <where>
-            <if test="weburl != null and weburl != ''">
-                weburl Like #{weburl}
-            </if>
             <if test="webname != null and webname != ''">
                 or webname Like #{webname}
             </if>
@@ -39,10 +36,7 @@
         select * from webinfo
         <where>
             <if test="uid != null and uid != ''">
-                and uid = #{uid}
-            </if>
-            <if test="weburl != null and weburl != ''">
-                and weburl = #{weburl}
+                 uid = #{uid}
             </if>
         </where>
     </select>

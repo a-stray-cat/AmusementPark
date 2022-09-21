@@ -2,15 +2,28 @@ server:
   port: 8352
   servlet:
     context-path: /api
+  tomcat:
+    # 设置内置Tomcat请求大小为20MB
+    max-http-form-post-size: 100MB
+
 
 spring:
-#  redis:
-#    host: 42.193.113.7
+  redis:
+    host: 81.70.149.158
+    port: 6639
+    password: redisnull
   datasource:
     username: root
     password: root
     url: jdbc:mysql://localhost:3306/amusementpark?useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true&useSSL=false
     driver-class-name: com.mysql.cj.jdbc.Driver
+
+  servlet:
+    multipart:
+      # 设置请求最大大小为20MB
+      max-request-size: 100MB
+      # 设置文件上传最大大小为20MB
+      max-file-size: 100MB
 
 mybatis:
   mapper-locations: classpath*:mapper/*.xml

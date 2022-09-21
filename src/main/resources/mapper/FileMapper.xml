@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="amusementpark.mapper.FileMapper">
+    <insert id="insertFile" parameterType="amusementpark.model.Files">
+        insert into file(filepath,filename,filesuffix,newfilename) values(#{filePath},#{fileName},#{fileSuffix},#{newFileName});
+    </insert>
+<!--    <insert id="insertFileInfo">-->
+<!--        insert into fileinfo (uid, articleid, filepath, filename,  filemessage, filetag, filesuffix) VALUES (#{uid},#{articleid},#{filepath},#{filename},#{filemessage},#{filetag},#{filesuffix})-->
+<!--    </insert>-->
+
+    <select id="selectFileByFileName" parameterType="string" resultType="amusementpark.model.Files">
+        select * from file where filename=#{filename};
+    </select>
+</mapper>

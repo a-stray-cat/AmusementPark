@@ -15,11 +15,11 @@ public class Result {
   public JSONObject twoCases(int i){
       JSONObject result = new JSONObject();
       if (i == 1) {
-          result.put("state:", i);
-          result.put("message:", "成功！");
+          result.put("state", i);
+          result.put("message", "成功！");
       } else {
-          result.put("state:", i);
-          result.put("message:", "失败！");
+          result.put("state", i);
+          result.put("message", "失败！");
       }
       return result;
   }

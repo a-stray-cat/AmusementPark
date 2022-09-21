@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="amusementpark.mapper.AppMapper">
+
+    <insert id="insertFileInfo">
+        insert into apkinfo (uid, apkname, apklink, apkmessage, apktag) VALUES (#{uid},#{apkname},#{apklink},#{apkmessage},#{apktag})
+    </insert>
+    <update id="updateAppInfo">
+        update apkinfo set apkname = #{apkname}, apkmessage = #{apkmessage}, apktag = #{apktag} where id = #{id}
+    </update>
+    <delete id="deleteAppInfo">
+        delete from apkinfo where id  = #{id}
+    </delete>
+    <select id="selectAllInfo" resultType="amusementpark.model.Apkinfo">
+        select * from apkinfo
+        <where>
+            <if test="uid != null and uid != '' ">
+                uid = #{uid}
+            </if>
+        </where>
+    </select>
+    <select id="selectInfo" resultType="amusementpark.model.Apkinfo">
+        select * from apkinfo
+        <where>
+            <if test="uid != null and uid != '' ">
+                uid = #{uid}
+            </if>
+            <if test="apkname != null and apkname != '' ">
+                or apkname LIKE #{apkname}
+            </if>
+            <if test="apkmessage != null and apkmessage != '' ">
+                or apkmessage LIKE #{apkmessage}
+            </if>
+            <if test="apktag != null and apktag != '' ">
+                or apktag LIKE #{apktag}
+            </if>
+        </where>
+    </select>
+</mapper>

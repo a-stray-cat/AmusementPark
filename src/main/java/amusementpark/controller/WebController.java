@@ -50,7 +50,13 @@ public class WebController {
 
   @PostMapping("/select")
   public List<Webinfo> selectWebInfo(@RequestBody Webinfo webinfo) {
-    return webService.selectWebInfo(webinfo);
+    if (webinfo.getUid() != null && ad.equals(userService.selectTypeByUuid(webinfo.getUid()).getType())) {
+      return webService.selectWebInfo(webinfo);
+    }else if (webinfo.getUid() == null) {
+      return webService.selectWebInfo(webinfo);
+    } else {
+      return webService.selectWhen(webinfo);
+    }
   }
 
   @PostMapping("/delete")

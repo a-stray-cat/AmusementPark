@@ -60,8 +60,19 @@ public class UserServiceImpl implements UserService {
 
   @Override
   public int updateUser(User user) {
-    User isUser = userMapper.isUser(user);
+    User isUser = userMapper.userLogin(user.getUsername(),user.getPassword());
     int i = -1;//密码错误
+    if (isUser != null) {
+      user.setPassword(user.getNewp());
+      i = userMapper.updateUser(user);
+    }
+    return i;
+  }
+
+  @Override
+  public int adminUpdateUser(User user) {
+    User isUser = userMapper.isUser(user);
+    int i = -1;//修改失败
     if (isUser != null) {
       user.setPassword(user.getNewp());
       i = userMapper.updateUser(user);

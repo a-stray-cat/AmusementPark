@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="amusementpark.mapper.SoftwareMapper">
+
+    <insert id="insertFileInfo">
+        insert into fileinfo (uid, articleid, filepath, filename,  softwaremessage, softwaretag, filesuffix, softwarename) VALUES (#{uid},#{articleid},#{filepath},#{filename},#{softwaremessage},#{softwaretag},#{filesuffix},#{filename})
+    </insert>
+    <update id="updateFileInfo">
+        update fileinfo set softwarename = #{softwarename}, softwaremessage = #{softwaremessage}, softwaretag = #{softwaretag} where articleid = #{articleid}
+    </update>
+    <delete id="deleteFileInfo">
+        delete  from fileinfo where articleid = #{articleid}
+    </delete>
+    <select id="selectAllInfo" resultType="amusementpark.model.Fileinfo">
+        select * from fileinfo;
+    </select>
+    <select id="selectInfo" resultType="amusementpark.model.Fileinfo">
+        select * from fileinfo
+        <where>
+            <if test="uid != null and uid != ''">
+                uid = #{uid}
+            </if>
+            <if test="softwarename != null and softwarename != '' ">
+                or softwarename LIKE #{softwarename}
+            </if>
+            <if test="softwaremessage != null and softwaremessage != '' ">
+                or softwaremessage LIKE #{softwaremessage}
+            </if>
+            <if test="softwaretag != null and softwaretag != '' ">
+                or softwaretag LIKE #{softwaretag}
+            </if>
+        </where>
+    </select>
+</mapper>

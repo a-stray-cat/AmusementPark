@@ -5,12 +5,12 @@
     <select id="isUser" resultType="amusementpark.model.User">
         select * from user
         <where>
-            <if test="username != null">
+            <if test="username != null and username != ''">
                 and username = #{username}
             </if>
-            <if test="password != null">
-                and password = #{password}
-            </if>
+<!--            <if test="password != null and password != ''">-->
+<!--                and password = #{password}-->
+<!--            </if>-->
         </where>
     </select>
     <select id="selectTypeByUuid" resultType="amusementpark.model.User">
@@ -29,7 +29,10 @@
         select * from user
         <where>
             <if test="username != null and username != ''">
-                username = #{username}
+                 username = #{username}
+            </if>
+            <if test="password != null and password != ''">
+                and password = #{password}
             </if>
         </where>
     </select>

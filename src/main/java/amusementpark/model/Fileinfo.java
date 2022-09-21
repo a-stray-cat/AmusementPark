@@ -1,31 +1,19 @@
 package amusementpark.model;
 
-/**
- * @author a-stray-cat
- * @version 1.0
- * @date 2022.02.26 13:17
- */
 
 public class Fileinfo {
 
   private String uid;
-  private String link;
-  private String filename;
+  private long fileid;
+  private String articleid;
+  private String softwarename;
+  private String filepath;
+  private String filesuffix;
   private String fileimg;
-  private String filemessage;
-  private String filetag;
+  private String softwaremessage;
+  private String softwaretag;
+  private String filename;
 
-  public Fileinfo() {
-  }
-
-  public Fileinfo(String uid, String link, String filename, String fileimg, String filemessage, String filetag) {
-    this.uid = uid;
-    this.link = link;
-    this.filename = filename;
-    this.fileimg = fileimg;
-    this.filemessage = filemessage;
-    this.filetag = filetag;
-  }
 
   public String getUid() {
     return uid;
@@ -36,21 +24,48 @@ public class Fileinfo {
   }
 
 
-  public String getLink() {
-    return link;
+  public long getFileid() {
+    return fileid;
   }
 
-  public void setLink(String link) {
-    this.link = link;
+  public void setFileid(long fileid) {
+    this.fileid = fileid;
   }
 
 
-  public String getFilename() {
-    return filename;
+  public String getArticleid() {
+    return articleid;
   }
 
-  public void setFilename(String filename) {
-    this.filename = filename;
+  public void setArticleid(String articleid) {
+    this.articleid = articleid;
+  }
+
+
+  public String getSoftwarename() {
+    return softwarename;
+  }
+
+  public void setSoftwarename(String softwarename) {
+    this.softwarename = softwarename;
+  }
+
+
+  public String getFilepath() {
+    return filepath;
+  }
+
+  public void setFilepath(String filepath) {
+    this.filepath = filepath;
+  }
+
+
+  public String getFilesuffix() {
+    return filesuffix;
+  }
+
+  public void setFilesuffix(String filesuffix) {
+    this.filesuffix = filesuffix;
   }
 
 
@@ -63,32 +78,30 @@ public class Fileinfo {
   }
 
 
-  public String getFilemessage() {
-    return filemessage;
+  public String getSoftwaremessage() {
+    return softwaremessage;
   }
 
-  public void setFilemessage(String filemessage) {
-    this.filemessage = filemessage;
+  public void setSoftwaremessage(String softwaremessage) {
+    this.softwaremessage = softwaremessage;
   }
 
 
-  public String getFiletag() {
-    return filetag;
+  public String getSoftwaretag() {
+    return softwaretag;
   }
 
-  public void setFiletag(String filetag) {
-    this.filetag = filetag;
+  public void setSoftwaretag(String softwaretag) {
+    this.softwaretag = softwaretag;
   }
 
-  @Override
-  public String toString() {
-    return "Fileinfo{" +
-            "uid='" + uid + '\'' +
-            ", link='" + link + '\'' +
-            ", filename='" + filename + '\'' +
-            ", fileimg='" + fileimg + '\'' +
-            ", filemessage='" + filemessage + '\'' +
-            ", filetag='" + filetag + '\'' +
-            '}';
+
+  public String getFilename() {
+    return filename;
   }
+
+  public void setFilename(String filename) {
+    this.filename = filename;
+  }
+
 }

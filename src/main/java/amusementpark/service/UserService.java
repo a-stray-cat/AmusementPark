@@ -25,6 +25,8 @@ public interface UserService {
 
     int updateUser(User user);
 
+    int adminUpdateUser(User user);
+
     List<User> selectUser(User user);
 
     int deleteUser(User user);

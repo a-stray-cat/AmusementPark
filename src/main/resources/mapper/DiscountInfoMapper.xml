@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="amusementpark.mapper.DiscountInfoMapper">
+
+
+    <insert id="insertDiscountInfo">
+        insert into discountinfo (title, img, description, link) values (#{title},#{img},#{description},#{link})
+    </insert>
+    <delete id="deleteAppInfo">
+        delete from discountinfo where id = #{id}
+    </delete>
+    <select id="selectDiscountInfo" resultType="amusementpark.model.Discountinfo">
+        select * from discountinfo;
+    </select>
+
+</mapper>

@@ -1,0 +1,27 @@
+mybatisGenerator:
+  datasource:
+    type: mysql
+    address: localhost:3306
+    db: amusementpark?serverTimezone=GMT
+    username: root
+    password: root
+
+  targetPackage:
+    model: amusementpark.model
+    mapper: amusementpark.mapper
+    javaXmlFilesSamePackage: false
+
+  targetRuntime: MyBatis3
+  mapperSuffixName: mapper
+  java8: true
+  disableExample: true
+
+  plugins:
+    comment: true
+    lombok: false
+    swagger: false
+    mapperAnnotation: true
+    serializable: false
+
+  tables:
+    - webinfo

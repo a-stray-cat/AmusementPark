@@ -15,15 +15,21 @@ public class User {
   private String password;
   private String newp;
 
+  private String code;
+
+  private String userToken;
+
   public User() {
   }
 
-  public User(String uuid, String type, String username, String password, String newp) {
+  public User(String uuid, String type, String username, String password, String newp, String code, String userToken) {
     this.uuid = uuid;
     this.type = type;
     this.username = username;
     this.password = password;
     this.newp = newp;
+    this.code = code;
+    this.userToken = userToken;
   }
 
   public String getUuid() {
@@ -69,6 +75,22 @@ public class User {
     this.newp = newp;
   }
 
+  public String getCode() {
+    return code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  public String getUserToken() {
+    return userToken;
+  }
+
+  public void setUserToken(String userToken) {
+    this.userToken = userToken;
+  }
+
   @Override
   public String toString() {
     return "User{" +
@@ -77,6 +99,8 @@ public class User {
             ", username='" + username + '\'' +
             ", password='" + password + '\'' +
             ", newp='" + newp + '\'' +
+            ", code='" + code + '\'' +
+            ", userToken='" + userToken + '\'' +
             '}';
   }
 }
